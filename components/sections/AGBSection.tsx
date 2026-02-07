@@ -13,9 +13,9 @@ const agbItems: AGBItem[] = [
     title: "Anwendungsbereich",
     content: (
       <>
-        Diese AGB gelten für <strong>sämtliche Beratungs-, Entwicklungs- und
+        Diese AGB gelten für <strong className="font-medium text-foreground">sämtliche Beratungs-, Entwicklungs- und
         Implementierungsleistungen</strong> der Asuno. Abweichende Bedingungen
-        gelten nur bei <strong>schriftlicher Vereinbarung</strong>.
+        gelten nur bei <strong className="font-medium text-foreground">schriftlicher Vereinbarung</strong>.
       </>
     ),
   },
@@ -25,8 +25,8 @@ const agbItems: AGBItem[] = [
     content: (
       <>
         Eine kostenfreie Terminverschiebung ist bis{" "}
-        <strong>14 Tage vor Projektstart</strong> möglich. Bei späterer
-        Stornierung werden <strong>50 % der vereinbarten Projektgebühr</strong>{" "}
+        <strong className="font-medium text-foreground">14 Tage vor Projektstart</strong> möglich. Bei späterer
+        Stornierung werden <strong className="font-medium text-foreground">50 % der vereinbarten Projektgebühr</strong>{" "}
         berechnet. Bereits erbrachte Leistungen werden separat abgerechnet.
       </>
     ),
@@ -38,7 +38,7 @@ const agbItems: AGBItem[] = [
       <>
         Bei Krankheit, höherer Gewalt oder unvorhersehbaren Ereignissen wird ein
         alternativer Termin vereinbart. Bereits geleistete Zahlungen werden{" "}
-        <strong>vollständig erstattet</strong>. Weitergehende Ansprüche sind
+        <strong className="font-medium text-foreground">vollständig erstattet</strong>. Weitergehende Ansprüche sind
         ausgeschlossen.
       </>
     ),
@@ -48,7 +48,7 @@ const agbItems: AGBItem[] = [
     title: "Zahlungsbedingungen",
     content: (
       <>
-        Rechnungen sind innerhalb von <strong>14 Tagen ohne Abzug</strong> zu
+        Rechnungen sind innerhalb von <strong className="font-medium text-foreground">14 Tagen ohne Abzug</strong> zu
         begleichen. Bei längeren Projekten können Teilrechnungen gestellt werden.
       </>
     ),
@@ -59,7 +59,7 @@ const agbItems: AGBItem[] = [
     content: (
       <>
         Nach vollständiger Bezahlung gehen{" "}
-        <strong>sämtliche Nutzungsrechte</strong> an den entwickelten
+        <strong className="font-medium text-foreground">sämtliche Nutzungsrechte</strong> an den entwickelten
         Arbeitsergebnissen auf den Auftraggeber über. Asuno darf generische
         Methoden anonymisiert weiterverwenden.
       </>
@@ -71,7 +71,7 @@ const agbItems: AGBItem[] = [
     content: (
       <>
         Personenbezogene Daten werden ausschließlich im Rahmen{" "}
-        <strong>gesetzlicher Datenschutzbestimmungen</strong> verarbeitet. Ein
+        <strong className="font-medium text-foreground">gesetzlicher Datenschutzbestimmungen</strong> verarbeitet. Ein
         Widerspruch gegen die Verarbeitung ist jederzeit per E-Mail möglich.
       </>
     ),
@@ -82,9 +82,9 @@ const agbItems: AGBItem[] = [
     content: (
       <>
         Asuno haftet uneingeschränkt bei Verletzung von Leben, Körper oder
-        Gesundheit sowie bei <strong>Vorsatz oder grober Fahrlässigkeit</strong>.
+        Gesundheit sowie bei <strong className="font-medium text-foreground">Vorsatz oder grober Fahrlässigkeit</strong>.
         Bei leichter Fahrlässigkeit haftet Asuno nur bei Verletzung{" "}
-        <strong>wesentlicher Vertragspflichten</strong> und beschränkt auf den
+        <strong className="font-medium text-foreground">wesentlicher Vertragspflichten</strong> und beschränkt auf den
         vorhersehbaren Schaden.
       </>
     ),
@@ -94,7 +94,7 @@ const agbItems: AGBItem[] = [
     title: "Gerichtsstand",
     content: (
       <>
-        Gerichtsstand ist <strong>Frankfurt am Main</strong>.
+        Gerichtsstand ist <strong className="font-medium text-foreground">Frankfurt am Main</strong>.
       </>
     ),
   },
@@ -102,26 +102,26 @@ const agbItems: AGBItem[] = [
 
 export default function AGBSection() {
   return (
-    <SectionWrapper id="agb" className="bg-background-alt">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Allgemeine Geschäftsbedingungen (AGB)
+    <SectionWrapper id="agb">
+      <div>
+        <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-foreground-muted">
+          Kapitel 3
+        </p>
+        <h2 className="mt-3 text-xl font-semibold text-foreground md:text-2xl">
+          Allgemeine Geschäftsbedingungen
         </h2>
       </div>
 
-      <div className="mt-16 grid gap-6">
+      <div className="mt-10 divide-y divide-border">
         {agbItems.map((item) => (
-          <div
-            key={item.nr}
-            className="rounded-xl border border-border bg-white p-8"
-          >
+          <div key={item.nr} className="py-5">
             <div className="flex items-baseline gap-3">
-              <span className="text-lg font-bold text-accent">{item.nr}</span>
-              <h3 className="text-lg font-semibold text-foreground">
+              <span className="text-xs text-foreground-muted">{item.nr}</span>
+              <h3 className="text-sm font-semibold text-foreground">
                 {item.title}
               </h3>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-foreground-muted">
+            <p className="mt-3 pl-8 text-sm leading-relaxed text-foreground-muted">
               {item.content}
             </p>
           </div>

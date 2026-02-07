@@ -1,52 +1,34 @@
-"use client";
-
-import { useRef, useState, useCallback, useEffect } from "react";
-import { Maximize2, Minimize2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface DemoFrameProps {
   src: string;
   title: string;
+  description?: string;
 }
 
-export default function DemoFrame({ src, title }: DemoFrameProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const toggleFullscreen = useCallback(() => {
-    if (!containerRef.current) return;
-
-    if (!document.fullscreenElement) {
-      containerRef.current.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  }, []);
-
-  useEffect(() => {
-    const onChange = () => setIsFullscreen(!!document.fullscreenElement);
-    document.addEventListener("fullscreenchange", onChange);
-    return () => document.removeEventListener("fullscreenchange", onChange);
-  }, []);
-
+export default function DemoFrame({ src, title, description }: DemoFrameProps) {
   return (
-    <div
-      ref={containerRef}
-      className="group relative mt-8 overflow-hidden rounded-xl border border-border shadow-lg bg-white"
+    <a
+      href={src}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group mt-8 flex items-center justify-between gap-6 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-7 py-6 text-white transition-all duration-200 hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg"
     >
-      <button
-        onClick={toggleFullscreen}
-        className="absolute right-3 top-3 z-10 flex items-center gap-2 rounded-lg bg-slate-900/80 px-3 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-slate-900"
-        title={isFullscreen ? "Vollbild beenden" : "Vollbild"}
-      >
-        {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-        {isFullscreen ? "Schließen" : "Vollbild"}
-      </button>
-      <iframe
-        src={src}
-        title={title}
-        className={isFullscreen ? "h-screen w-full" : "h-[600px] w-full"}
-        loading="lazy"
-      />
-    </div>
+      <div className="min-w-0">
+        <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-white/60">
+          Interaktiver Prototyp
+        </p>
+        <p className="mt-1.5 text-base font-semibold leading-snug">
+          {title}
+        </p>
+        {description && (
+          <p className="mt-1 text-sm text-white/70">{description}</p>
+        )}
+      </div>
+      <div className="flex shrink-0 items-center gap-2 rounded-md bg-white/15 px-4 py-2.5 text-sm font-medium transition-colors group-hover:bg-white/25">
+        Jetzt ausprobieren
+        <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      </div>
+    </a>
   );
 }

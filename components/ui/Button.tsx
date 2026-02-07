@@ -20,10 +20,9 @@ type ButtonAsAnchor = BaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsAnchor;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-accent text-white hover:bg-accent-light shadow-lg shadow-accent/25",
+  primary: "bg-foreground text-white hover:opacity-90",
   secondary:
-    "bg-transparent text-foreground border border-border hover:border-accent hover:text-accent",
+    "text-foreground border border-border hover:border-foreground",
 };
 
 export default function Button({
@@ -33,7 +32,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer";
+    "inline-flex items-center justify-center rounded px-5 py-2.5 text-sm font-medium transition-all duration-200 cursor-pointer";
   const styles = `${baseStyles} ${variantStyles[variant]} ${className}`;
 
   if ("href" in props && props.href) {

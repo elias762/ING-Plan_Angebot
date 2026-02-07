@@ -1,29 +1,32 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import Button from "@/components/ui/Button";
 
 export default function ContactSection() {
   return (
-    <SectionWrapper id="kontakt" className="bg-primary-dark text-white">
+    <SectionWrapper id="kontakt">
       <div>
-        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-accent-light">
+        <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-foreground-muted">
           Kontakt
         </p>
-        <p className="max-w-2xl text-lg text-white/70">
-          Sollten Fragen aufkommen, meldet Euch jederzeit gerne per{" "}
-          <a href="mailto:elias@asuno.co" className="text-white hover:underline">E-Mail</a>{" "}
-          oder telefonisch unter{" "}
-          <a href="tel:+4917643936170" className="text-white hover:underline">+49 176 43936170</a>{" "}
-          bei mir.
+        <p className="mt-4 max-w-xl text-[15px] leading-[1.8] text-foreground-muted">
+          Sollten Fragen aufkommen, meldet Euch jederzeit gerne bei mir.
         </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Button href="mailto:elias@asuno.co">elias@asuno.co</Button>
-          <Button
-            href="tel:+4917643936170"
-            variant="secondary"
-            className="border-white/20 text-white hover:border-white hover:text-white"
-          >
-            +49 176 43936170
-          </Button>
+        <div className="mt-6 space-y-1.5">
+          <p className="text-sm">
+            <a
+              href="mailto:elias@asuno.co"
+              className="text-foreground underline decoration-foreground-muted/40 underline-offset-2 transition-colors hover:decoration-foreground"
+            >
+              elias@asuno.co
+            </a>
+          </p>
+          <p className="text-sm">
+            <a
+              href="tel:+4917643936170"
+              className="text-foreground underline decoration-foreground-muted/40 underline-offset-2 transition-colors hover:decoration-foreground"
+            >
+              +49 176 43936170
+            </a>
+          </p>
         </div>
       </div>
     </SectionWrapper>

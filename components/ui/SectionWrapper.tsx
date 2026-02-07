@@ -17,13 +17,13 @@ export default function SectionWrapper({
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`px-6 py-20 md:py-28 ${className}`}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`px-8 py-14 md:px-12 md:py-20 ${className}`}
     >
-      <div className="mx-auto max-w-6xl">{children}</div>
+      {children}
     </motion.section>
   );
 }

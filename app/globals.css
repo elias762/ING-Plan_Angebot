@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #1e3a5f;
-  --color-primary-light: #2a5298;
-  --color-primary-dark: #0f2440;
-  --color-accent: #4f46e5;
-  --color-accent-light: #6366f1;
+  --color-primary: #171717;
+  --color-primary-light: #262626;
+  --color-primary-dark: #0a0a0a;
+  --color-accent: #171717;
+  --color-accent-light: #404040;
   --color-background: #ffffff;
-  --color-background-alt: #f8fafc;
-  --color-foreground: #0f172a;
-  --color-foreground-muted: #475569;
-  --color-border: #e2e8f0;
+  --color-background-alt: #fafafa;
+  --color-foreground: #171717;
+  --color-foreground-muted: #737373;
+  --color-border: #e5e5e5;
 }
 
 @theme inline {
@@ -32,34 +32,34 @@ html {
 }
 
 body {
-  background: var(--color-background);
+  background: #f5f5f4;
   color: var(--color-foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 ::selection {
-  background-color: var(--color-accent);
+  background-color: #171717;
   color: white;
 }
 
 /* ROI slider thumb */
 .roi-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: #171717;
   border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
 .roi-slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: #171717;
   border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
