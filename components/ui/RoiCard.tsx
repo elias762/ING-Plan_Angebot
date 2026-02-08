@@ -76,7 +76,7 @@ export default function RoiCard() {
 
         {/* Results */}
         <div className="bg-foreground p-6 text-white">
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             <div className="rounded bg-white/10 px-4 py-4 text-center">
               <p className="text-[10px] font-medium uppercase tracking-wider text-white/50">
                 Gesamteffekt / Jahr

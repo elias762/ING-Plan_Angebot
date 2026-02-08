@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useHasToggleBar } from "@/components/ui/DevicePreview";
 
 const navItems = [
   { label: "Anschreiben", href: "#hero", number: null },
@@ -13,6 +14,7 @@ const navItems = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const hasToggleBar = useHasToggleBar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,14 +79,14 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-56 bg-white md:block">
+      <aside className={`fixed left-0 ${hasToggleBar ? "top-11 h-[calc(100vh-2.75rem)]" : "top-0 h-screen"} z-40 hidden w-56 bg-white md:block`}>
         {navContent(false)}
       </aside>
 
       {/* Mobile hamburger button */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed left-4 top-4 z-50 rounded bg-white p-2 shadow-sm md:hidden"
+        className={`fixed left-4 ${hasToggleBar ? "top-[3.75rem]" : "top-4"} z-50 rounded bg-white p-2 shadow-sm md:hidden`}
         aria-label="Inhaltsverzeichnis"
       >
         <svg
@@ -122,7 +124,7 @@ export default function Navbar() {
 
       {/* Mobile sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-50 h-screen w-64 transform bg-white transition-transform duration-300 md:hidden ${
+        className={`fixed left-0 ${hasToggleBar ? "top-11 h-[calc(100vh-2.75rem)]" : "top-0 h-screen"} z-50 w-64 transform bg-white transition-transform duration-300 md:hidden ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
